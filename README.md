@@ -8,5 +8,5 @@ Bem-vindo ao meu repositório de Resistência dos Materiais! Aqui você encontra
     *   [Flexão composta](https://github.com/rafaelnmbarros/Calculadoras-Resistencia--dos-Materiais/blob/5b022b59b861c833fe5c4aaa2254fb7b5bcd98af/Tensoes-em-vigas.ipynb)
     *   [Cisalhamento transversal]()
 * Estado Plano de Tensões
-    * [Equações de transformação de tensões]()<br>
+    * [Equações de transformação de tensões](https://github.com/rafaelnmbarros/Calculadoras-Resistencia-dos-Materiais/blob/80d66e88b23355cc687e3f9659a927b225830eb8/Estado-plano-de-tensoes-Equacoes-de-transformacao.ipynb)<br>
     * [Círculo de Mohr]()
