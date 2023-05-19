@@ -1,4 +1,4 @@
-# Calculadoras de Resistência dos Materiais AAAAAAAAAAA
+# Calculadoras de Resistência dos Materiais
 
 Bem-vindo ao meu repositório de Resistência dos Materiais! Aqui você encontrará uma de ferramentas relacionados a esta disciplina. Este repositório foi criado para ajudar estudantes, engenheiros das áreas de engenharia civil e afins a aprofundar seus conhecimentos neste campo fundamental da engenharia.
 
