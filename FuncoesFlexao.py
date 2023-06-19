@@ -31,7 +31,7 @@ def TensFlexRet(b, h, Mz, My, N):
     sigma_max = np.max(sigma)
     sigma_min = np.min(sigma)
 
-    faixa = np.linspace(sigma_min, sigma_max, 20)
+    faixa = np.linspace(sigma_min, sigma_max, 10)
 
 
 
@@ -42,22 +42,26 @@ def TensFlexRet(b, h, Mz, My, N):
     #Criação do gráfico
     fig, ax = plt.subplots(figsize=(6, 6))
     ax.set_aspect('equal')
-    cores = 'viridis'
+    cores = 'gist_rainbow'
 
     # Plotagem do contorno de valores
     contour = ax.contourf(-Z, Y, sigma, levels = faixa, cmap = cores,)
 
     # Adição da barra de cores
     cbar = fig.colorbar(contour)
-    cbar.set_label('$\sigma$ (MPa)')
+    cbar.set_label('$\sigma$ (MPa)', fontdict={'fontsize': 12})
+    
+    #Adição de título ao gráfico
+    ax.set_title('Distribuição de tensões normais na seção \n \n',
+                 fontdict={'fontsize': 14, 'fontweight': 'bold'})
 
     # Definição dos limites do gráfico
     lim_min = -max(b, h)/2
     lim_max = max(b, h)/2
     ax.set_xlim(lim_min, lim_max)
     ax.set_ylim(lim_min, lim_max)
-    ax.set_xlabel('z (cm)')
-    ax.set_ylabel('y (cm)')
+    ax.set_xlabel('z (cm)', fontdict={'fontsize': 14})
+    ax.set_ylabel('y (cm)', fontdict={'fontsize': 14})
 
 
     #Linha neutra
@@ -115,17 +119,6 @@ def TensFlexI(d, bf, tf, tw, Mz, My, N):
     import numpy as np
     import matplotlib.pyplot as plt
 
-    #----------------------------------------------------
-    #Entrada de dados
-    #----------------------------------------------------
-    bf = 20
-    d = 40
-    tw = 1
-    tf = 2
-    M = 11 #kNm
-    theta = 5 #°
-    N = -25 #kN
-
 
     #----------------------------------------------------
     #Propriedade geométrica da seção
@@ -164,8 +157,7 @@ def TensFlexI(d, bf, tf, tw, Mz, My, N):
     Iz=inercia_I(d, bf, tw, tf, zc, yc)[0]
     Iy=inercia_I(d, bf, tw, tf, zc, yc)[1]
 
-    #Inclinação da linha neutra
-    alpha = -(180/np.pi)*np.arctan((Iz/Iy)*np.tan(theta))
+    
 
     #----------------------------------------------------
     #Parâmetros adicionais
@@ -207,7 +199,7 @@ def TensFlexI(d, bf, tf, tw, Mz, My, N):
     sigma = np.concatenate((sigma1, sigma2, sigma3))
     sigma_max = np.nanmax(sigma)
     sigma_min = np.nanmin(sigma)
-    faixa = np.linspace(sigma_min, sigma_max, 20)
+    faixa = np.linspace(sigma_min, sigma_max, 10)
 
 
     #----------------------------------------------------
@@ -218,7 +210,7 @@ def TensFlexI(d, bf, tf, tw, Mz, My, N):
     fig, ax = plt.subplots(figsize=(6, 6))
 
     # Plotagem do contorno de valores
-    cores = 'viridis'
+    cores = 'gist_rainbow'
 
     contour = ax.contourf(-Z1, Y1, sigma1, levels = faixa, cmap=cores)
     contour = ax.contourf(-Z2, Y2, sigma2, levels = faixa, cmap=cores)
@@ -226,15 +218,19 @@ def TensFlexI(d, bf, tf, tw, Mz, My, N):
 
     # Adição da barra de cores
     cbar = fig.colorbar(contour)
-    cbar.set_label('$\sigma_x\ (MPa)$')
+    cbar.set_label('$\sigma_x\ (MPa)$', fontdict={'fontsize': 12})
+    
+    #Adição de título ao gráfico
+    ax.set_title('Distribuição de tensões normais na seção \n \n',
+                 fontdict={'fontsize': 14, 'fontweight': 'bold'})
 
     # Definição dos limites do gráfico
     lim_min = -max(bf, d)/2
     lim_max = max(bf, d)/2
     ax.set_xlim(lim_min, lim_max)
     ax.set_ylim(lim_min, lim_max)
-    ax.set_xlabel('z (cm)')
-    ax.set_ylabel('y (cm)')
+    ax.set_xlabel('z (cm)', fontdict={'fontsize': 14})
+    ax.set_ylabel('y (cm)', fontdict={'fontsize': 14})
 
     #Linha neutra
     z = np.linspace(lim_min, lim_max, 10)
@@ -371,7 +367,7 @@ def TensFlexC(d, bf, tw, tf, Mz, My, N):
     sigma = np.concatenate((sigma1, sigma2, sigma3))
     sigma_max = np.nanmax(sigma)
     sigma_min = np.nanmin(sigma)
-    faixa = np.linspace(sigma_min, sigma_max, 20)
+    faixa = np.linspace(sigma_min, sigma_max, 10)
 
 
     #----------------------------------------------------
@@ -383,7 +379,7 @@ def TensFlexC(d, bf, tw, tf, Mz, My, N):
 
 
     # Plotagem do contorno de valores
-    cores = 'viridis'
+    cores = 'gist_rainbow'
 
     contour = ax.contourf(-Z1, Y1, sigma1, levels = faixa, cmap=cores)
     contour = ax.contourf(-Z2, Y2, sigma2, levels = faixa, cmap=cores)
@@ -391,15 +387,19 @@ def TensFlexC(d, bf, tw, tf, Mz, My, N):
 
     # Adição da barra de cores
     cbar = fig.colorbar(contour)
-    cbar.set_label('$\sigma_x\ (MPa)$')
+    cbar.set_label('$\sigma_x\ (MPa)$', fontdict={'fontsize': 12})
+    
+    #Adição de título ao gráfico
+    ax.set_title('Distribuição de tensões normais na seção \n \n',
+                 fontdict={'fontsize': 14, 'fontweight': 'bold'})
 
     # Definição dos limites do gráfico
     lim_min = -max(bf, d)/2
     lim_max = max(bf, d)/2
     ax.set_xlim(lim_min, lim_max)
     ax.set_ylim(lim_min, lim_max)
-    ax.set_xlabel('z (cm)')
-    ax.set_ylabel('y (cm)')
+    ax.set_xlabel('z (cm)', fontdict={'fontsize': 14})
+    ax.set_ylabel('y (cm)', fontdict={'fontsize': 14})
 
     #Linha neutra
     z = np.linspace(lim_min, lim_max, 10)
@@ -527,7 +527,7 @@ def TensFlexL(d, bf, tw, tf, Mz, My, N):
     sigma = np.concatenate((sigma1, sigma2))
     sigma_max = np.nanmax(sigma)
     sigma_min = np.nanmin(sigma)
-    faixa = np.linspace(sigma_min, sigma_max, 20)
+    faixa = np.linspace(sigma_min, sigma_max, 10)
 
 
     #----------------------------------------------------
@@ -539,21 +539,25 @@ def TensFlexL(d, bf, tw, tf, Mz, My, N):
 
 
     # Plotagem do contorno de valores
-    cores = 'viridis'
+    cores = 'gist_rainbow'
     contour = ax.contourf(-Z1, Y1, sigma1, levels = faixa, cmap=cores)
     contour = ax.contourf(-Z2, Y2, sigma2, levels = faixa, cmap=cores)
 
     # Adição da barra de cores
     cbar = fig.colorbar(contour)
-    cbar.set_label('$\sigma_x\ (MPa)$')
+    cbar.set_label('$\sigma_x\ (MPa)$', fontdict={'fontsize': 12})
+    
+    #Adição de título ao gráfico
+    ax.set_title('Distribuição de tensões normais na seção \n \n',
+                 fontdict={'fontsize': 14, 'fontweight': 'bold'})
 
     # Definição dos limites do gráfico
     lim_min = -max(bf/2, yc, d-yc)
     lim_max = max(bf/2, yc, d-yc)
     ax.set_xlim(lim_min, lim_max)
     ax.set_ylim(lim_min, lim_max)
-    ax.set_xlabel('z (cm)')
-    ax.set_ylabel('y (cm)')
+    ax.set_xlabel('z (cm)', fontdict={'fontsize': 14})
+    ax.set_ylabel('y (cm)', fontdict={'fontsize': 14})
 
     #Linha neutra
     z = np.linspace(lim_min, lim_max, 10)
